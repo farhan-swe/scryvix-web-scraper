@@ -32,7 +32,6 @@ Scryvix delivers a comprehensive, **no-code** solution for structured data extra
 
 ### 📸 Screenshots
 <img width="418" height="481" alt="Capture" src="https://github.com/user-attachments/assets/d3d184f5-f62d-4bfe-9f7a-783ddf0da3b6" />
-<img width="416" height="481" alt="Capture2" src="https://github.com/user-attachments/assets/71c04ebc-3d6f-45b9-819b-7deca4ca42eb" />
 
 ### 🛠️ Installation
 
