@@ -64,8 +64,6 @@ Click "Load unpacked" and select the cloned scryvix-web-scraper directory.
 
 7. Refine & Export: Use the Data Management buttons to clean the data, and the Export buttons to download or copy your harvest.
 
-My apologies for the misunderstanding. I will provide only the author information, formatted in Markdown, as requested.
-
 ---
 
 ### 👤 Author
