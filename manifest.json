@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "Scryvix",
+  "version": "1.0.0",
+  "description": "A powerful, pure JavaScript universal data scraping Chrome extension.",
+
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Scryvix"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["contentScript.js"]
+    }
+  ],
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "downloads",
+    "contextMenus"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ]
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scryvix - The Pro Scrape Tool.</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <h1 class="title">Scryvix - The Pro Scrape Tool.</h1>
+        </div>
+        <button id="settings-btn" class="icon-btn settings-btn" aria-label="Settings">⚙️</button>
+    </header>
+
+    <main class="main-content">
+        <div id="notification-bar" class="notification-bar hidden"></div>
+        
+        <section class="actions">
+            <button id="start-scraping-btn" class="btn primary-btn">Start Scraping</button>
+            <button id="stop-scraping-btn" class="btn secondary-btn" disabled>Stop Scraping</button>
+        </section>
+
+        <section class="management-actions">
+            <button id="trim-spaces-btn" class="btn small-btn tertiary-btn" disabled>Trim Spaces</button>
+            <button id="remove-duplicates-btn" class="btn small-btn tertiary-btn" disabled>Remove Duplicates</button>
+            <select id="case-conversion-select" class="select-field" disabled>
+                <option value="">Convert Case</option>
+                <option value="upper">UPPERCASE</option>
+                <option value="lower">lowercase</option>
+                <option value="title">Title Case</option>
+            </select>
+            <button id="clear-data-btn" class="btn small-btn tertiary-btn" disabled>Clear Data</button> 
+        </section>
+
+        <section class="export-actions">
+            <button id="export-csv-btn" class="btn export-btn" disabled>Export CSV</button>
+            <button id="export-json-btn" class="btn export-btn" disabled>Export JSON</button>
+            <button id="copy-clipboard-btn" class="btn export-btn" disabled>Copy Data</button>
+        </section>
+
+        <section class="data-preview">
+            <h3 class="preview-title">Scraped Data Preview (Table)</h3>
+            
+            <div id="data-table-container" class="table-container">
+                <p id="table-placeholder" class="placeholder-text">Click 'Start Scraping' to begin defining your data table.</p>
+            </div>
+            
+            <p id="data-stats" class="stats-text">Total records: 0</p>
+        </section>
+
+        <!-- NEW: Pagination Controls -->
+        <section class="pagination-controls">
+            <button id="prev-page-btn" class="btn tertiary-btn" disabled>← Previous</button>
+            <span id="page-info" class="page-info">Page 1</span>
+            <button id="next-page-btn" class="btn tertiary-btn" disabled>Next →</button>
+            <select id="page-size-select" class="select-field">
+                <option value="10">10 per page</option>
+                <option value="25">25 per page</option>
+                <option value="50">50 per page</option>
+                <option value="100">100 per page</option>
+            </select>
+        </section>
+
+        <div id="settings-modal" class="settings-modal hidden">
+            <h3>Settings</h3>
+            <label class="switch-toggle">
+                Dark Mode:
+                <input type="checkbox" id="dark-mode-toggle" checked>
+                <span class="slider"></span>
+            </label>
+            <button id="close-settings-btn" class="btn close-modal-btn">Close</button>
+        </div>
+    </main>
+
+    <script src="popup.js"></script>
+</body>
+</html>
