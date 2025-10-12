@@ -1,4 +1,4 @@
-// contentScript.js - Scryvix Element Selector & Structured Scraping Logic with Live Updates
+
 
 let isSelectorActive = false;
 let currentFields = [];      
@@ -9,7 +9,7 @@ const COLOR_PALETTE = {
     btnSecondary: '#22C55E'
 };
 
-// --- CORE UTILITIES (Streamlined) ---
+
 
 /**
  * Generates the Template Element Selector (Aggressive Up-leveling).
@@ -17,21 +17,21 @@ const COLOR_PALETTE = {
 function getUniqueCssSelector(el) {
     if (el.id) return `#${el.id}`;
 
-    // Aggressive: Search for the highest parent with a semi-unique class
+    
     let current = el;
     let path = [];
     
-    // Go up and find the first DIV/SECTION with ID or container class
+    
     while (current && current.tagName !== 'BODY' && current.tagName !== 'HTML' && path.length < 5) {
         let part = current.tagName.toLowerCase();
         
-        // Important classes
+        
         const usefulClasses = Array.from(current.classList).filter(c => 
             c && !c.startsWith('scryvix-') && c.length > 5 && !c.includes('-item') && !c.includes('active')
         );
 
         if (usefulClasses.length > 0) {
-            // Include only the first important class
+            
             part += `.${usefulClasses[0]}`;
         }
         
@@ -61,7 +61,7 @@ function getRelativeSelector(el, base) {
         if (current.id) {
             selector = `#${current.id}`;
         } else {
-            // Aggressive: Only use the first good class.
+            
             const usefulClasses = Array.from(current.classList).filter(c => 
                 c && !c.startsWith('scryvix-') && c.length > 5
             );
@@ -69,7 +69,7 @@ function getRelativeSelector(el, base) {
             if (usefulClasses.length > 0) {
                 selector += `.${usefulClasses[0]}`; 
             }
-            // WARNING: Nth-child/Nth-of-type is COMPLETELY AVOIDED here to prevent path breakage.
+            
         }
 
         path.unshift(selector);
@@ -78,19 +78,19 @@ function getRelativeSelector(el, base) {
     return path.join(' > ');
 }
 
-// --- LIVE SCRAPING FUNCTION ---
+
 function startLiveScraping() {
     if (!templateElement || currentFields.length === 0) return;
     
     const scrapedData = runTemplatedScrape();
     
-    // Send live update to background
+    
     chrome.runtime.sendMessage({ 
         action: 'data_update_preview', 
         data: scrapedData 
     });
     
-    // Update UI feedback
+    
     const templateSelector = templateElement ? getUniqueCssSelector(templateElement) : null;
     if (templateSelector) {
         const count = document.querySelectorAll(templateSelector).length;
@@ -102,7 +102,7 @@ function startLiveScraping() {
     }
 }
 
-// --- SELECTION & SCRAPING LOGIC ---
+
 
 function selectElement(e) {
     if (!isSelectorActive) return;
@@ -116,7 +116,7 @@ function selectElement(e) {
     const existingIndex = currentFields.findIndex(f => f.element === target);
 
     if (existingIndex !== -1) {
-        // DESELECT logic
+        
         target.classList.remove('scryvix-selected');
         currentFields.splice(existingIndex, 1);
         if (currentFields.length === 0) {
@@ -124,11 +124,11 @@ function selectElement(e) {
             templateElement = null;
         }
     } else {
-        // --- SELECT ---
+        
         target.classList.add('scryvix-selected');
 
         if (currentFields.length === 0) {
-            // Set template to the selected element for single row scraping
+            
             templateElement = target;
         }
         
@@ -147,7 +147,7 @@ function selectElement(e) {
     
     target.classList.remove('scryvix-highlight');
     
-    // LIVE UPDATE: Start scraping immediately after selection
+    
     if (isSelectorActive && currentFields.length > 0) {
         startLiveScraping();
     }
@@ -189,11 +189,11 @@ function runTemplatedScrape() {
                 
                 record[field.name] = scrapedValue || 'Empty';
 
-                // Attributes
+                
                 if (field.attributes.href) record[`${field.name}_href`] = field.attributes.href;
                 if (field.attributes.src) record[`${field.name}_src`] = field.attributes.src;
                 
-                // Mark record as valid if we got any data
+                
                 if (scrapedValue && scrapedValue !== 'Empty') {
                     recordValid = true;
                 }
@@ -206,9 +206,9 @@ function runTemplatedScrape() {
         }
     });
     
-    // Only push if we have at least one valid field
+    
     if (recordValid || Object.keys(record).some(key => record[key] && record[key] !== 'Not Found' && record[key] !== 'Empty')) {
-        // Add metadata
+        
         record.id = finalScrapedData.length + 1;
         record.url = window.location.href;
         record.timestamp = new Date().toISOString();
@@ -218,7 +218,7 @@ function runTemplatedScrape() {
     return finalScrapedData;
 }
 
-// --- MAIN FLOW CONTROL ---
+
 
 function stopSelector() {
     if (!isSelectorActive) return;
@@ -272,7 +272,7 @@ function unhighlightElement(e) {
     }
 }
 
-// --- MESSAGE LISTENERS & CSS INJECTION ---
+
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if (request.action === 'start_selector') {

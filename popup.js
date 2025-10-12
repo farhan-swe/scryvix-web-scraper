@@ -1,4 +1,3 @@
-// popup.js - Scryvix Popup Logic with Pagination & Live Updates
 
 // --- Cache DOM elements ---
 const startScrapingBtn = document.getElementById('start-scraping-btn');
