@@ -1,4 +1,4 @@
-# Scryvix: Precision Web Harvesting, Elevated.
+# Scryvix: Precision Web Harvesting, Elevated. 
 
 <p align="center">
   <a href="https://github.com/khdxsohee/scryvix-web-scraper/stargazers"><img src="https://img.shields.io/github/stars/khdxsohee/scryvix-web-scraper?style=flat-square&color=FFD700&label=Stars" alt="GitHub Stars"></a>
