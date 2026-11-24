@@ -1,8 +1,8 @@
 # Scryvix: Precision Web Harvesting, Elevated. 
 
 <p align="center">
-  <a href="https://github.com/khdxsohee/scryvix-web-scraper/stargazers"><img src="https://img.shields.io/github/stars/khdxsohee/scryvix-web-scraper?style=flat-square&color=FFD700&label=Stars" alt="GitHub Stars"></a>
-  <a href="https://github.com/khdxsohee/scryvix-web-scraper/issues"><img src="https://img.shields.io/github/issues/khdxsohee/scryvix-web-scraper?style=flat-square&color=00B6D4" alt="GitHub Issues"></a>
+  <a href="https://github.com/farhan-swe/scryvix-web-scraper/stargazers"><img src="https://img.shields.io/github/stars/farhan-swe/scryvix-web-scraper?style=flat-square&color=FFD700&label=Stars" alt="GitHub Stars"></a>
+  <a href="https://github.com/farhan-swe/scryvix-web-scraper/issues"><img src="https://img.shields.io/github/issues/farhan-swe/scryvix-web-scraper?style=flat-square&color=00B6D4" alt="GitHub Issues"></a>
   <img src="https://img.shields.io/badge/Status-Shipped-brightgreen?style=flat-square&color=34D399" alt="Status: Shipped">
   <img src="https://img.shields.io/badge/Architecture-Manifest%20V3-blueviolet?style=flat-square" alt="Architecture: Manifest V3">
   <img src="https://img.shields.io/badge/Language-Pure%20JavaScript-yellow?style=flat-square&color=FBBF24" alt="Language: Pure JavaScript">
@@ -37,7 +37,7 @@ Scryvix delivers a comprehensive, **no-code** solution for structured data extra
 
 1. **Clone the Repository:**
    ```bash
-   git clone [https://github.com/khdxsohee/scryvix-web-scraper.git](https://github.com/khdxsohee/scryvix-web-scraper.git)
+   git clone [https://github.com/farhan-swe/scryvix-web-scraper.git](https://github.com/farhan-swe/scryvix-web-scraper.git)
    ```
 
 2.    Open Chrome Extensions Page:
@@ -68,5 +68,5 @@ Click "Load unpacked" and select the cloned scryvix-web-scraper directory.
 
 ### 👤 Author
 
-**Developed by:** khdxsohee
-**GitHub:** [khdxsohee](https://github.com/khdxsohee)
+**Developed by:** farhan-swe
+**GitHub:** [farhan-swe](https://github.com/farhan-swe)
